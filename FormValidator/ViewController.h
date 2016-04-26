@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FormValidator.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField* nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField* addressTextField;
+
+@property (strong, nonatomic) FormValidator* formValidator;
 
 
 @end
