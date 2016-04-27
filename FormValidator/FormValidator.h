@@ -23,10 +23,8 @@
 -(BOOL)validateField:(UITextField*)textField;
 
 
-//-(BOOL) validateName:(NSString*)nameString;
+-(BOOL) isAddress:(NSString*)addressString;
 
-//-(BOOL) validateAddress:(NSString*)addressString;
-
-//-(BOOL) isZipCode:(NSString*)codeString;
+-(BOOL) isZipCode:(NSString*)codeString;
 
 @end

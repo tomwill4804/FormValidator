@@ -10,7 +10,10 @@
 
 @implementation FormValidator
 
-
+//
+//  create a new instance and save the passed form validation
+//  dictionary address:
+//
 +(FormValidator*)initWithDictionary:(NSArray*) dictionary;
 {
     
@@ -21,13 +24,10 @@
     
 }
 
--(BOOL) validateName:(NSString*)nameString {
-    
-    return [[nameString componentsSeparatedByString:@" "] count] > 1;
-    
-}
 
-
+//
+//  validate the passed field using the form validation dictionary
+//
 -(BOOL)validateField:(UITextField*)textField {
     
     self.valid = YES;
@@ -44,16 +44,56 @@
         }
     }
     
+    if (self.fieldDictionary) {
+        
+        //
+        //  minimum field length
+        //
+        NSInteger len = [self.fieldDictionary[@"minlength"] intValue];
+        if (len > 0 && len < textField.text.length) {
+            self.valid = NO;
+            self.errorMessage = @"field is too short";
+        }
+        
+        //
+        //  max field length
+        //
+        len = [self.fieldDictionary[@"maxlength"] intValue];
+        if (len > textField.text.length) {
+            self.valid = NO;
+            self.errorMessage = @"field is too long";
+        }
+
+        //
+        //  min words
+        //
+        len = [self.fieldDictionary[@"minwords"] intValue];
+        if (len > 0 && len < [[textField.text componentsSeparatedByString:@" "] count]) {
+            self.valid = NO;
+            self.errorMessage = @"not enough words";
+        }
+        
+        //
+        //  max words
+        //
+        len = [self.fieldDictionary[@"maxwords"] intValue];
+        if (len > [[textField.text componentsSeparatedByString:@" "] count]) {
+            self.valid = NO;
+            self.errorMessage = @"too enough words";
+        }
+
+
+        
+    }
+    
     return self.valid;
     
 }
 
 
-/*
 
--(BOOL) validateAddress:(NSString*)addressString{
+-(BOOL) isAddress:(NSString*)addressString{
     
-    return [[nameString componentsSeparatedByString:@" "] count] > 1;
     
     NSTextCheckingType dectorType = NSTextCheckingTypeAddress;
     
@@ -71,18 +111,22 @@
     
 }
 
--(BOOL) isZipCode:(NSString*)codeString{
-
-    BOOL rc = NO;
-    NSCharacterSet* set = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+-(BOOL) isZipCode:(NSString*)zipString{
     
-    rc = ([codeString rangeOfCharacterFromSet:set].location != NSNotFound) &&
-    ([codeString length] == 5);
+    BOOL rc =NO;
+    NSCharacterSet * set = [NSCharacterSet characterSetWithCharactersInString:@"1234567890"];
+    
+    set = [set invertedSet];
+    
+    NSRange myRange =[zipString rangeOfCharacterFromSet:set];
+    
+    rc =(myRange.location == NSNotFound);
+    
+    rc = ([zipString length]==5) && rc;
     
     return rc;
     
 }
- 
-*/
+
 
 @end

@@ -19,6 +19,10 @@
 
 @implementation ViewController
 
+
+//
+//  read the form validation dictionary and create a form validator
+//
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -32,7 +36,10 @@
 }
 
 
-
+//
+//  see if this field is valid and set the next field if
+//  it is
+//
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
     BOOL ok = [self.formValidator validateField:textField];
