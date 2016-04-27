@@ -81,8 +81,8 @@
             self.valid = NO;
             self.errorMessage = @"too enough words";
         }
-
-
+        
+        
         
     }
     

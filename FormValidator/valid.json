@@ -1,13 +1,44 @@
 [
   {
-  "tag": 1,
-  "minlength": 3,
-  "maxlength": 8,
-  "nextfield": 2
+ "name": "name",
+ "tag": 1,
+ "minwords": 2,
+ "nextfield": 2
   },
   {
-  "tag": 2,
-  "minlength": 3,
-  "maxlength": 9
-  }
+ "name": "address",
+ "tag": 2,
+ "type": "address",
+ "nextfield": 3
+  },
+ {
+ "name": "city",
+ "tag": 3,
+ "type": "address",
+ "nextfield": 4
+ },
+ {
+ "name": "state",
+ "tag": 4,
+ "type": "address",
+ "minlength": 2,
+ "maxlength": 2,
+ "nextfield": 5
+ },
+ {
+ "name": "zip",
+ "tag": 5,
+ "type": "zip",
+ "minlength": 5,
+ "maxlength": 5,
+ "nextfield": 6
+ },
+ {
+ "name": "phone",
+ "tag": 6,
+ "type": "phone",
+ "minlength": 7,
+ "maxlength": 12,
+ "nextfield": 0
+ }
 ]
