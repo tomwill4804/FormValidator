@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -77,6 +78,7 @@
                         <constraints>
                             <constraint firstItem="ghR-JN-kib" firstAttribute="top" secondItem="baG-eR-pyt" secondAttribute="bottom" constant="8" id="60Y-sN-nyl"/>
                             <constraint firstItem="7n8-jy-AT0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="KQs-cz-7VA"/>
+                            <constraint firstItem="7n8-jy-AT0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="KVu-xU-GdW"/>
                             <constraint firstItem="7n8-jy-AT0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Owb-4t-z1y"/>
                             <constraint firstItem="YQG-tg-HGR" firstAttribute="leading" secondItem="7n8-jy-AT0" secondAttribute="leading" id="VB1-XW-DnM"/>
                             <constraint firstItem="foR-tx-A8o" firstAttribute="leading" secondItem="baG-eR-pyt" secondAttribute="leading" id="Vk4-IB-qJf"/>
