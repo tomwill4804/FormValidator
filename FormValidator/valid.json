@@ -1,0 +1,13 @@
+[
+  {
+  "tag": 1,
+  "minlength": 3,
+  "maxlength": 8,
+  "nextfield": 2
+  },
+  {
+  "tag": 2,
+  "minlength": 3,
+  "maxlength": 9
+  }
+]

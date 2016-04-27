@@ -10,12 +10,50 @@
 
 @implementation FormValidator
 
+
++(FormValidator*)initWithDictionary:(NSArray*) dictionary;
+{
+    
+    FormValidator *form = [[FormValidator alloc] init];
+    form.validDict = dictionary;
+    
+    return form;
+    
+}
+
 -(BOOL) validateName:(NSString*)nameString {
     
     return [[nameString componentsSeparatedByString:@" "] count] > 1;
     
 }
+
+
+-(BOOL)validateField:(UITextField*)textField {
+    
+    self.valid = YES;
+    self.errorMessage = nil;
+    self.nextField = 0;
+    self.fieldDictionary = nil;
+    
+    NSInteger tag = textField.tag;
+    for (NSDictionary* dict in self.validDict) {
+        NSInteger dtag = [dict[@"tag"] intValue];
+        if (dtag == tag) {
+            self.fieldDictionary = dict;
+            self.nextField = [self.fieldDictionary[@"nextfield"] intValue];
+        }
+    }
+    
+    return self.valid;
+    
+}
+
+
+/*
+
 -(BOOL) validateAddress:(NSString*)addressString{
+    
+    return [[nameString componentsSeparatedByString:@" "] count] > 1;
     
     NSTextCheckingType dectorType = NSTextCheckingTypeAddress;
     
@@ -44,5 +82,7 @@
     return rc;
     
 }
+ 
+*/
 
 @end

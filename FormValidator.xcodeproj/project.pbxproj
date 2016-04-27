@@ -14,6 +14,7 @@
 		E31529F61CCFB6E2005D092F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31529F51CCFB6E2005D092F /* Assets.xcassets */; };
 		E31529F91CCFB6E2005D092F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31529F71CCFB6E2005D092F /* LaunchScreen.storyboard */; };
 		E3152A021CCFC00A005D092F /* FormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E3152A011CCFC00A005D092F /* FormValidator.m */; };
+		E3EB66E21CD0303F00AE0C36 /* valid.json in Resources */ = {isa = PBXBuildFile; fileRef = E3EB66E11CD0303F00AE0C36 /* valid.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		E31529FA1CCFB6E2005D092F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3152A001CCFC00A005D092F /* FormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormValidator.h; sourceTree = "<group>"; };
 		E3152A011CCFC00A005D092F /* FormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormValidator.m; sourceTree = "<group>"; };
+		E3EB66E11CD0303F00AE0C36 /* valid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = valid.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				E3152A011CCFC00A005D092F /* FormValidator.m */,
 				E31529F21CCFB6E2005D092F /* Main.storyboard */,
 				E31529F51CCFB6E2005D092F /* Assets.xcassets */,
+				E3EB66E11CD0303F00AE0C36 /* valid.json */,
 				E31529F71CCFB6E2005D092F /* LaunchScreen.storyboard */,
 				E31529FA1CCFB6E2005D092F /* Info.plist */,
 				E31529E91CCFB6E1005D092F /* Supporting Files */,
@@ -143,6 +146,7 @@
 			files = (
 				E31529F91CCFB6E2005D092F /* LaunchScreen.storyboard in Resources */,
 				E31529F61CCFB6E2005D092F /* Assets.xcassets in Resources */,
+				E3EB66E21CD0303F00AE0C36 /* valid.json in Resources */,
 				E31529F41CCFB6E2005D092F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +312,7 @@
 				E31529FF1CCFB6E2005D092F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

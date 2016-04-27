@@ -7,13 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface FormValidator : NSObject
 
--(BOOL) validateName:(NSString*)nameString;
+@property (strong, nonatomic) NSArray *validDict;
 
--(BOOL) validateAddress:(NSString*)addressString;
+@property (strong, nonatomic) NSDictionary *fieldDictionary;
+@property (strong, nonatomic) NSString *errorMessage;
+@property                     BOOL valid;
+@property                     NSInteger nextField;
 
--(BOOL) isZipCode:(NSString*)codeString;
+
++(FormValidator*)initWithDictionary:(NSArray*) dictionary;
+-(BOOL)validateField:(UITextField*)textField;
+
+
+//-(BOOL) validateName:(NSString*)nameString;
+
+//-(BOOL) validateAddress:(NSString*)addressString;
+
+//-(BOOL) isZipCode:(NSString*)codeString;
 
 @end

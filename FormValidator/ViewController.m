@@ -9,7 +9,11 @@
 #import "ViewController.h"
 #import "FormValidator.h"
 
-@interface ViewController () 
+@interface ViewController () {
+    
+    NSArray *validDict;
+    
+}
 
 @end
 
@@ -19,31 +23,31 @@
     
     [super viewDidLoad];
     
-    self.formValidator = [[FormValidator alloc] init];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"valid" ofType:@"json"];
+    
+    validDict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingAllowFragments error:nil];
+    
+    self.formValidator = [FormValidator initWithDictionary:validDict];
+   
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    if (textField == self.nameTextField) {
-        if ([self.formValidator validateName:textField.text]) {
+    BOOL ok = [self.formValidator validateField:textField];
+
+    if (self.formValidator.nextField != 0) {
+        
+        UITextField *newField = (UITextField *)[self.view viewWithTag:self.formValidator.nextField];
             
-            [self.nameTextField resignFirstResponder];
-            [self.addressTextField becomeFirstResponder];
-            return YES;
-            
-        }
-        else
-            return NO;
+        [textField resignFirstResponder];
+        [newField becomeFirstResponder];
+        
     }
-    else
-        return [self.formValidator validateAddress:textField.text];
     
+    return YES;
+        
 }
 
 @end
