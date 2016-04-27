@@ -9,18 +9,19 @@
  "name": "address",
  "tag": 2,
  "type": "address",
+ "minwords": 2,
  "nextfield": 3
   },
  {
  "name": "city",
  "tag": 3,
- "type": "address",
+ "minlength": 2,
  "nextfield": 4
  },
  {
  "name": "state",
  "tag": 4,
- "type": "address",
+ "type": "state",
  "minlength": 2,
  "maxlength": 2,
  "nextfield": 5

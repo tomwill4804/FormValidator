@@ -35,6 +35,10 @@
     self.nextField = 0;
     self.fieldDictionary = nil;
     
+    //
+    //  find the right dictionary entry for this text field
+    //  based on the tag
+    //
     NSInteger tag = textField.tag;
     for (NSDictionary* dict in self.validDict) {
         NSInteger dtag = [dict[@"tag"] intValue];
@@ -44,13 +48,18 @@
         }
     }
     
+    
+    //
+    //  process the generic checks
+    //
     if (self.fieldDictionary) {
         
         //
         //  minimum field length
         //
+        NSInteger flen = textField.text.length;
         NSInteger len = [self.fieldDictionary[@"minlength"] intValue];
-        if (len > 0 && len < textField.text.length) {
+        if (len > 0 && flen < len) {
             self.valid = NO;
             self.errorMessage = @"field is too short";
         }
@@ -59,7 +68,7 @@
         //  max field length
         //
         len = [self.fieldDictionary[@"maxlength"] intValue];
-        if (len > textField.text.length) {
+        if (len > 0 && flen > len) {
             self.valid = NO;
             self.errorMessage = @"field is too long";
         }
@@ -67,8 +76,9 @@
         //
         //  min words
         //
+        NSInteger words = [[textField.text componentsSeparatedByString:@" "] count];
         len = [self.fieldDictionary[@"minwords"] intValue];
-        if (len > 0 && len < [[textField.text componentsSeparatedByString:@" "] count]) {
+        if (len > 0 && words < len) {
             self.valid = NO;
             self.errorMessage = @"not enough words";
         }
@@ -77,12 +87,21 @@
         //  max words
         //
         len = [self.fieldDictionary[@"maxwords"] intValue];
-        if (len > [[textField.text componentsSeparatedByString:@" "] count]) {
+        if (len > 0 && words > len) {
             self.valid = NO;
             self.errorMessage = @"too enough words";
         }
         
+        //
+        //  process the special types
+        //
+        NSString *type = self.fieldDictionary[@"type"];
+        NSString *text = textField.text;
         
+        if ([type isEqualToString:@"address"])
+            self.valid = [self isAddress:text];
+        else if ([type isEqualToString:@"zip"])
+            self.valid = [self isZipCode:text];
         
     }
     

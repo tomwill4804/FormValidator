@@ -42,18 +42,19 @@
 //
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    BOOL ok = [self.formValidator validateField:textField];
-
-    if (self.formValidator.nextField != 0) {
+    BOOL valid = [self.formValidator validateField:textField];
+    
+    if (valid) {
         
-        UITextField *newField = (UITextField *)[self.view viewWithTag:self.formValidator.nextField];
-            
         [textField resignFirstResponder];
-        [newField becomeFirstResponder];
         
+        if (self.formValidator.nextField != 0) {
+            UITextField *newField = (UITextField *)[self.view viewWithTag:self.formValidator.nextField];
+            [newField becomeFirstResponder];
+        }
     }
     
-    return YES;
+    return valid;
         
 }
 
