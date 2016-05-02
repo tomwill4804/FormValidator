@@ -13,6 +13,7 @@
 
 
 @property (strong, nonatomic) FormValidator* formValidator;
+@property (weak, nonatomic) IBOutlet UILabel* errorMessage;
 
 
 @end

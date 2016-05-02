@@ -49,10 +49,13 @@
         [textField resignFirstResponder];
         
         if (self.formValidator.nextField != 0) {
+            self.errorMessage.text =  @"";
             UITextField *newField = (UITextField *)[self.view viewWithTag:self.formValidator.nextField];
             [newField becomeFirstResponder];
         }
     }
+    else
+        self.errorMessage.text = self.formValidator.errorMessage;
     
     return valid;
         

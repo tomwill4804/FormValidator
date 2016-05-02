@@ -73,6 +73,12 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Ehq-qY-RDj"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYv-P1-nP3">
+                                <rect key="frame" x="60" y="258" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -96,6 +102,9 @@
                             <constraint firstItem="baG-eR-pyt" firstAttribute="width" secondItem="YQG-tg-HGR" secondAttribute="width" id="zxk-gd-eOA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="errorMessage" destination="RYv-P1-nP3" id="bGa-ai-Mn5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
